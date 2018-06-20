@@ -12,9 +12,6 @@ new Vue({
     },
     monsterHealthMeter: function() {
       return { width: this.monster_health + '%' }
-    },
-    logRecord: function() {
-      return this.log.reverse()
     }
   },
   methods: {
@@ -29,7 +26,7 @@ new Vue({
       var yourDamage = this.calculateDamage(1, 15);
       this.monster_health -= monsterDamage;
       this.your_health -= yourDamage;
-      this.log.push({
+      this.log.unshift({
         'monster-turn': yourDamage,
         'player-turn': monsterDamage
       });
@@ -40,7 +37,7 @@ new Vue({
       var yourDamage = this.calculateDamage(1, 15);
       this.monster_health -= monsterDamage;
       this.your_health -= yourDamage;
-      this.log.push({
+      this.log.unshift({
         'monster-turn': yourDamage,
         'player-turn': monsterDamage
       });
@@ -51,7 +48,7 @@ new Vue({
       var yourDamage = this.calculateDamage(1, 15);
       this.your_health += healAmount
       this.your_health -= yourDamage
-      this.log.push({
+      this.log.unshift({
         'monster-turn': yourDamage,
         'player-heal': healAmount
       });
